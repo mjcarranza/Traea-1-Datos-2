@@ -3,4 +3,4 @@ project(Grafo)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Grafo main.cpp grafo.cpp grafo.h)
+add_executable(Grafo main.cpp Grafo.h Grafo.cpp)

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mario/CLionProjects/Grafo/grafo.cpp" "/home/mario/CLionProjects/Grafo/cmake-build-debug/CMakeFiles/Grafo.dir/grafo.cpp.o"
+  "/home/mario/CLionProjects/Grafo/Grafo.cpp" "/home/mario/CLionProjects/Grafo/cmake-build-debug/CMakeFiles/Grafo.dir/Grafo.cpp.o"
   "/home/mario/CLionProjects/Grafo/main.cpp" "/home/mario/CLionProjects/Grafo/cmake-build-debug/CMakeFiles/Grafo.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

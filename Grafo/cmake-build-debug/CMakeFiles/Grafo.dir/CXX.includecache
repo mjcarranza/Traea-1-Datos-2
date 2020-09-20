@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
+/home/mario/CLionProjects/Grafo/Grafo.h
+iostream
+-
+
 /home/mario/CLionProjects/Grafo/main.cpp
 iostream
 -
+Grafo.h
+/home/mario/CLionProjects/Grafo/Grafo.h
 

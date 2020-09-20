@@ -90,29 +90,29 @@ CMakeFiles/Grafo.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Grafo.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mario/CLionProjects/Grafo/main.cpp -o CMakeFiles/Grafo.dir/main.cpp.s
 
-CMakeFiles/Grafo.dir/grafo.cpp.o: CMakeFiles/Grafo.dir/flags.make
-CMakeFiles/Grafo.dir/grafo.cpp.o: ../grafo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mario/CLionProjects/Grafo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Grafo.dir/grafo.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Grafo.dir/grafo.cpp.o -c /home/mario/CLionProjects/Grafo/grafo.cpp
+CMakeFiles/Grafo.dir/Grafo.cpp.o: CMakeFiles/Grafo.dir/flags.make
+CMakeFiles/Grafo.dir/Grafo.cpp.o: ../Grafo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mario/CLionProjects/Grafo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Grafo.dir/Grafo.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Grafo.dir/Grafo.cpp.o -c /home/mario/CLionProjects/Grafo/Grafo.cpp
 
-CMakeFiles/Grafo.dir/grafo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Grafo.dir/grafo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mario/CLionProjects/Grafo/grafo.cpp > CMakeFiles/Grafo.dir/grafo.cpp.i
+CMakeFiles/Grafo.dir/Grafo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Grafo.dir/Grafo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mario/CLionProjects/Grafo/Grafo.cpp > CMakeFiles/Grafo.dir/Grafo.cpp.i
 
-CMakeFiles/Grafo.dir/grafo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Grafo.dir/grafo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mario/CLionProjects/Grafo/grafo.cpp -o CMakeFiles/Grafo.dir/grafo.cpp.s
+CMakeFiles/Grafo.dir/Grafo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Grafo.dir/Grafo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mario/CLionProjects/Grafo/Grafo.cpp -o CMakeFiles/Grafo.dir/Grafo.cpp.s
 
 # Object files for target Grafo
 Grafo_OBJECTS = \
 "CMakeFiles/Grafo.dir/main.cpp.o" \
-"CMakeFiles/Grafo.dir/grafo.cpp.o"
+"CMakeFiles/Grafo.dir/Grafo.cpp.o"
 
 # External object files for target Grafo
 Grafo_EXTERNAL_OBJECTS =
 
 Grafo: CMakeFiles/Grafo.dir/main.cpp.o
-Grafo: CMakeFiles/Grafo.dir/grafo.cpp.o
+Grafo: CMakeFiles/Grafo.dir/Grafo.cpp.o
 Grafo: CMakeFiles/Grafo.dir/build.make
 Grafo: CMakeFiles/Grafo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mario/CLionProjects/Grafo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Grafo"

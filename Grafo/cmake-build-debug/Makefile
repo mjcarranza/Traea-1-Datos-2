@@ -143,32 +143,32 @@ Grafo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/build
 .PHONY : Grafo/fast
 
-grafo.o: grafo.cpp.o
+Grafo.o: Grafo.cpp.o
 
-.PHONY : grafo.o
+.PHONY : Grafo.o
 
 # target to build an object file
-grafo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo.cpp.o
-.PHONY : grafo.cpp.o
+Grafo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/Grafo.cpp.o
+.PHONY : Grafo.cpp.o
 
-grafo.i: grafo.cpp.i
+Grafo.i: Grafo.cpp.i
 
-.PHONY : grafo.i
+.PHONY : Grafo.i
 
 # target to preprocess a source file
-grafo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo.cpp.i
-.PHONY : grafo.cpp.i
+Grafo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/Grafo.cpp.i
+.PHONY : Grafo.cpp.i
 
-grafo.s: grafo.cpp.s
+Grafo.s: Grafo.cpp.s
 
-.PHONY : grafo.s
+.PHONY : Grafo.s
 
 # target to generate assembly for a file
-grafo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo.cpp.s
-.PHONY : grafo.cpp.s
+Grafo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/Grafo.cpp.s
+.PHONY : Grafo.cpp.s
 
 main.o: main.cpp.o
 
@@ -206,9 +206,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Grafo"
-	@echo "... grafo.o"
-	@echo "... grafo.i"
-	@echo "... grafo.s"
+	@echo "... Grafo.o"
+	@echo "... Grafo.i"
+	@echo "... Grafo.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

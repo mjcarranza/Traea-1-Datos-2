@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/Grafo.dir/main.cpp.o CMakeFiles/Grafo.dir/grafo.cpp.o  -o Grafo 
+/usr/bin/c++  -g   CMakeFiles/Grafo.dir/main.cpp.o CMakeFiles/Grafo.dir/Grafo.cpp.o  -o Grafo 
