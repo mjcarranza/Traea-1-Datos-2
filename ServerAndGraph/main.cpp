@@ -1,3 +1,6 @@
+/* Created by mario on 18/9/20. */
+
+/* Libraries */
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
@@ -7,139 +10,133 @@
 
 using namespace std;
 
+/* Main method */
 int main()
 {
-    // se inicializa el grafo
+    /* Initializing a new graph */
     Graph G;
     G.init();
+
+    /* Variables */
     int opc, valArist;
     string buffer[1000];
     const char *opt;
-    string ONodo;
-    string DNodo;
+    string ONodo, DNodo;
     const char *Arist;
 
-    // /////////////////////////////////////////////////////////////////////
-    // se crea el servidor
+    /* Creating server */
     struct sockaddr_in server_dir; //
     server_dir.sin_family = AF_INET;
     server_dir.sin_addr.s_addr = INADDR_ANY;
     server_dir.sin_port = htons(8080);
 
-    int servidor = socket(AF_INET, SOCK_STREAM, 0); // Create a new socket.
-
+    /* Creating a new socket. */
+    int servidor = socket(AF_INET, SOCK_STREAM, 0);
     int activado = 1;
-    setsockopt(servidor, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado)); // Set socket optname
+    /* Set socket optname */
+    setsockopt(servidor, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado)); /* Set socket optname */
 
-    if (bind(servidor, (sockaddr *) &server_dir, sizeof(server_dir)) != 0) { // Condition in case of a Bind error
+    /* Condition in case of a bind error */
+    if (bind(servidor, (sockaddr *) &server_dir, sizeof(server_dir)) != 0) {
         perror("Bind Failed");
         return 1;
     }
 
     printf("Listening\n");
-    listen(servidor, 100); // Max amount of clients allowed
+    listen(servidor, 100); /* Max amount of clients allowed */
 
-    //------------------------------
-
+    /* Accepting client`s connection */
     struct sockaddr_in client_dir;
     unsigned int sizeDir;
     int cliente = accept(servidor, (sockaddr *) &client_dir, &sizeDir);
-
     printf("Connection established in %d!!\n", cliente);
-    send(cliente, "Hello client", 13, 0); // se envia un mensaje al cliente
+    send(cliente, "Hello client", 13, 0);
     send(cliente, ":)\n", 4, 0);
 
-
-    //------------------------------
-    //string* buffer = reinterpret_cast<string *>(static_cast<char *>(malloc(1000))); // buffer size
-
+    /* Loop for managing the graph according to client`s petition */
     while (true) {
+
+        /* Receiving information from client */
         int bytesRecibidos = recv(cliente, buffer, 1000, 0);
         cout<<"Info received!!";
 
-        // conditional if client is disconnected
+        /* Conditional if client is disconnected */
         if (bytesRecibidos <= 0) {
             perror("Client disconnected.");
             return 1;
         }
 
-
-        buffer[bytesRecibidos] = '\0'; // lo recibido es almacenado en el buffer
+        /* What is received is assigned to the buffer */
+        buffer[bytesRecibidos] = '\0';
         printf("I got %d bytes with %s\n", bytesRecibidos, buffer);
 
+        /* Catching information from buffer */
         buffer[0] = opt;
         buffer[1] = ONodo;
         buffer[2] = DNodo;
         buffer[3] = Arist;
+        buffer->clear();
 
-        opc = atoi(opt); // paso el string que trae el buffer a valor numerico
-        valArist = atoi(Arist); // paso el string que trae el buffer a valor numerico
+        /* Converting option and "arista" type from string to integer */
+        opc = atoi(opt);
+        valArist = atoi(Arist);
 
-        // ////////////////////////////////////////////////////
+        /* Do-While for every option selected by the client */
         do
         {
-            switch(opc) // guardar en opc la opcion que viene en el array
+            /* Switch for every option */
+            switch(opc)
             {
-                // caso para ingresar un vertice al grafo
+                /* Case 1: Inserting node */
                 case 1:
                 {
-                    cout<<"el nodo se ha insertado con exito";
+                    /* Calling graph`s method */
                     G.insert_vertice(ONodo);
                     break;
                 }
-                    // caso para Ingresar arista
+                /* Case 2: Inserting "arista" */
                 case 2:
                 {
+                    /* If graph is empty we cannot add an arista */
                     if(G.empty())
                     {
-                        cout<<"El grafo esta vacio"<<endl;
+                        cout<<"Grapg is empty"<<endl;
                     }
+                    /* If is not empty, we can insert a new arista */
                     else
                     {
-                        if(G.GetVertice(ONodo) == NULL || G.GetVertice(DNodo) == NULL)
+                        /* If one of the nodes does not exist we cannot insert the arista */
+                        if(G.GetVertice(ONodo) == nullptr || G.GetVertice(DNodo) == nullptr)
                         {
-                            cout<<"Uno de los vertices no es valido"<<endl;
+                            cout<<"One of the nodes does not exist."<<endl;
                         }
+                        /* Inserting the arista */
                         else
                         {
-                            cout<< "Arista inserted";
+                            /* Calling graph`s method */
                             G.insert_arista(G.GetVertice(ONodo), G.GetVertice(DNodo), valArist);
                         }
                     }
                     break;
                 }
-                    // caso para Lista de adyacencia
+
+                /* Case 3: applying Floyd-Warshall algorithm to the graph */
                 case 3:
                 {
-                    if(G.empty())
-                    {
-                        cout<<"El grafo esta vacio"<<endl;
-                    }
-                    else
-                    {
-                        G.ady_list();
-                    }
+                    /* Calling function to generate a matrix and then apply floyd-Warshall`s algorithm to it. */
+                    G.matrix();
+
+                    /* Sending matrix to client */
+                    send(cliente,buffer, 13, 0); // missing: pass matrix to buffer for it to be sent.
                     break;
                 }
-
-                    // caso para salir de la aplicacion
-                case 4:
-                {
-                    int dimension;
-                    G.floyd(dimension);
-
-                    // enviar el reultado del algoritmo al cliente y que este lo muestre en la Ui
-
-                    break;
-                }
+                /* Default case */
                 default:
                 {
-                    cout<<"Elija una opcion valida"<<endl;
+                    cout<<"There was an error"<<endl;
                 }
             }
         }
         while(opc > 0 && opc < 5);
     }
-    free(buffer);
-    return 0;
 }
