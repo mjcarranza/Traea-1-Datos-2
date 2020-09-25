@@ -1,3 +1,4 @@
+/* Libraries */
 #include "mainwindow.h"
 #include "cliente.h"
 
@@ -5,10 +6,13 @@
 
 int main(int argc, char *argv[])
 {
-    // Client class object
+    /* Client`s class object */
     Cliente C;
-    // Initializing client class
+
+    /*  Initializing client class */
     C.Client();
+
+    /* Creating user interface*/
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
