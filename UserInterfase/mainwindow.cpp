@@ -23,9 +23,12 @@ MainWindow::~MainWindow()
 void MainWindow::on_IAristaBtn_clicked()
 {
     Cliente C; /* Client`s class object */
-    C.Client();
-    string opc; /* With this number the server knows what does the client want to do */
-    opc = "2";
+    C.Client();/* With this number the server knows what does the client want to do */
+    string opc = "2";
+    char option[10];
+    char Origin[100];
+    char Destination[100];
+    char Weight[100];
     string array[4];
 
     QString NodoOrig = ui->NodoOrig->text(); /* Obtains the name of the oigin node */
@@ -37,14 +40,17 @@ void MainWindow::on_IAristaBtn_clicked()
     string textDest = NodoDest.toUtf8().constData();
     string txtPeso = ValorArist.toUtf8().constData();
 
-    /* Adding data to the array that will be sent*/
-    array[0] = opc;
-    array[0] = textOrig;
-    array[0] = textDest;
-    array[0] = txtPeso;
+    /* Passing from string to char */
+    strcpy(Origin,textOrig.c_str());
+    strcpy(Destination,textDest.c_str());
+    strcpy(Weight,txtPeso.c_str());
+    strcpy(option,opc.c_str());
 
     /* Sending the array to the server */
-    C.SendString(array);
+    C.SendString(option);
+    C.SendString(Origin);
+    C.SendString(Destination);
+    C.SendString(Weight);
     QMessageBox::information(this,tr("INFORMACION"),tr("ARISTA INSERTADA")); /* Chart shows info about the arista */
 }
 
@@ -52,19 +58,20 @@ void MainWindow::on_INodoBtn_clicked()
 {
     Cliente C; /* Client`s class object */
     C.Client();
-    string opc; /* With this number the server knows what does the client want to do */
-    opc = "1";
-    string array[2];
+    string opc = "1"; /* With this number the server knows what does the client want to do */
+    char option[10];
+    char Node[100];
 
     QString NombreNodo = ui->NombreNodo->text();  /* Obtains the name for the new node */
-    std::string strtext = NombreNodo.toUtf8().constData(); /* Passing form qstring to string */
+    string strtext = NombreNodo.toUtf8().constData(); /* Passing form qstring to string */
 
-    /* Adding data to the array that will be sent*/
-    array[0] = opc;
-    array[1] = strtext;
+    /* Passing from string to char */
+    strcpy(option,opc.c_str());
+    strcpy(Node,strtext.c_str());
 
     /* Sending the array to the server */
-    C.SendString(array);
+    C.SendString(option);
+    C.SendString(Node);
     QMessageBox::information(this,tr("INFORMACION"),tr("NODO INSERTADO")); /* Chart shows info about the new node */
 }
 

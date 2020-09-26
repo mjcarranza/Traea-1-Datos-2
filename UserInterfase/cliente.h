@@ -23,11 +23,11 @@ class Cliente{
      * Public constructor
      * */
 public:
-    sockaddr_in addr;
-    string buffer[1000]; // envia datos en forma de string
+    //sockaddr_in addr;
+    char buffer[1000];
     int server = socket(AF_INET, SOCK_STREAM, 0);
     int Client();
-    void SendString(string array[]);
+    void SendString(char *message);
     void Receive();
 
 };

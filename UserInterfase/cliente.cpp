@@ -11,6 +11,7 @@ int Cliente::Client(){
     direccionServidor.sin_family = AF_INET;
     direccionServidor.sin_addr.s_addr = inet_addr("127.0.0.1");
     direccionServidor.sin_port = htons(8080);
+    char buffer[1024] = {0};
     unsigned int sizeDir;
     /* Creating socket for client */
     int cliente = socket(AF_INET, SOCK_STREAM, 0);
@@ -22,18 +23,16 @@ int Cliente::Client(){
         return 1;
     }
     else{
-        printf("Connection established succesfully");
+        cout<<"Connection established successfully"<<endl;
     }
 }
 
 /* Client method for sending information to the server */
-void Cliente::SendString(string array[])
+void Cliente::SendString(char *message)
 {
-    /* The information is sent to the server by the buffer */
-    array = this->buffer;
-    send(server, buffer, sizeof(buffer), 0);
-    memset(buffer, 0, sizeof(buffer));
-    cout << "Mensaje enviado!" << endl;
+    /* The information is sent to the server by the message */
+    send(server, message, sizeof(message), 0);
+    cout << "Message sent!" << endl;
 }
 
 /* Client method for receiving information from server */
@@ -44,7 +43,6 @@ void Cliente::Receive()
     cout << "El servidor dice: " << buffer << endl;
     memset(buffer, 0, sizeof(buffer));
 
-    // agregar logica del algotitmo floyd
 }
 
 
