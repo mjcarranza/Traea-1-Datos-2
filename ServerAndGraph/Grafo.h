@@ -12,7 +12,7 @@ class Vertice{
     /* Vertice attributes. */
 
     friend class Grafo;
-
+/* Public variables */
 public:
     Vertice *next;
     Arista *ady;

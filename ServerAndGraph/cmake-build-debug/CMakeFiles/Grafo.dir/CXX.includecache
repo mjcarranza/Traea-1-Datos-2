@@ -14,17 +14,3 @@ Grafo.h
 iostream
 -
 
-/home/mario/CLionProjects/Grafo/main.cpp
-iostream
--
-cstdlib
--
-cstdio
--
-arpa/inet.h
--
-sys/socket.h
--
-Grafo.h
-/home/mario/CLionProjects/Grafo/Grafo.h
-

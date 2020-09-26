@@ -39,7 +39,9 @@ void Graph::insert_vertice(string nombre) {
         }
         aux->next = nuevo; /* Once the last node is found, its pointer changes from NULL to the new node inserted */
         contador+=1; /* Counter for knowing how many nodes are inserted */
+
     }
+    cout<<"Node inserted successfully."<<endl;
 }
 /* inserting "aristas" */
 void Graph::insert_arista(Vertice *origen, Vertice *destino, int peso) {
@@ -65,15 +67,15 @@ void Graph::insert_arista(Vertice *origen, Vertice *destino, int peso) {
     }
 }
 
-// Method for getting an existing node.
+/* Method for getting an existing node. */
 Vertice *Graph::GetVertice(string nombre) {
     Vertice *aux;
     aux = head;
-    while (aux != NULL){ // while aux is not pointing to null..
-        if (aux->nombre == nombre){ // if aux`s name is equals to the parameter name, the searched node was found
+    while (aux != NULL){ /* while aux is not pointing to null.. */
+        if (aux->nombre == nombre){ /* If aux`s name is equals to the parameter name, the searched node was found */
             return aux;
         }
-        aux = aux->next; // if the current node does`n match the searched node, continue with the next one
+        aux = aux->next; /* If the current node does`n match the searched node, continue with the next one */
     }
     return NULL;
 }
@@ -110,6 +112,7 @@ int Graph::matrix() {
             }
         }
     }
+    /* Callling method for applying Floyd-Warshall`s algorithm */
     this->floyd(cont);
 }
 
@@ -121,8 +124,6 @@ int Graph::floyd(int dim) {
     for (int i=0; i<dim; i++){
         for (int j=0; j<dim; j++){
             matriz[i][j];
-            // something is missing ////////////////////////////////////////////////////////////////////////////////////
-            // a la posicion ij hay qye agregarle el valor del arista
         }
     }
 
@@ -139,5 +140,4 @@ int Graph::floyd(int dim) {
         } // End for
     } // End for
     return matrix();
-    // retornar matriz para pasarsela al cliente y que la muestre
 }
